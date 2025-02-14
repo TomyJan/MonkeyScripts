@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NodeSeek 表情包增强
 // @namespace    https://www.nodeseek.com/
-// @version      0.0.5
+// @version      0.0.6
 // @description  为 NodeSeek 添加更多表情包
 // @author       TomyJan
 // @match        *://www.nodeseek.com/*
@@ -13,6 +13,14 @@
 // @downloadURL  https://update.greasyfork.org/scripts/487482/NodeSeek%20%E8%A1%A8%E6%83%85%E5%8C%85%E5%A2%9E%E5%BC%BA.user.js
 // @updateURL    https://update.greasyfork.org/scripts/487482/NodeSeek%20%E8%A1%A8%E6%83%85%E5%8C%85%E5%A2%9E%E5%BC%BA.meta.js
 // ==/UserScript==
+
+/**
+ * 
+ * 
+ * 当前版本更新日志
+ * 0.0.6 - 205.02.14          !!!更新前注意备份您的配置!!!
+ * - 优化 兼容最新的 App 选项卡
+ */
 
 (function () {
     'use strict';
@@ -44,7 +52,7 @@
         const emotionTitleDiv = document.querySelector('.expression');
         Object.keys(customEmotionList).forEach(key => {
             const newDiv = createEmotionTitle(key);
-            emotionTitleDiv.appendChild(newDiv);
+            emotionTitleDiv.insertBefore(newDiv, emotionTitleDiv.lastElementChild);
         });
     }
 
